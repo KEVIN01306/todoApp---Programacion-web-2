@@ -8,7 +8,7 @@ const InputTarea = ({agregarTarea, tareaInputEstado}) => {
             <div className="m-5">
                 <div class="input-group">
                     <textarea class="form-control" aria-label="With textarea" value={tareaInputEstado.newTarea} 
-                        onChange={(e) => tareaInputEstado.setNewTarea(e.target.value)}>
+                        onChange={tareaInputEstado.handlerNewTarea}>
                     </textarea>
                 </div>
             </div>

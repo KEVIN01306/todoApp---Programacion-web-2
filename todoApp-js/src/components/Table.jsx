@@ -4,13 +4,11 @@ import Row from "./Row";
 
 
 
-const TableList = ( {listaTarea}) => {
-
-    console.log(listaTarea)
+const TableList = ( {listaTarea, cambiarEstado, eliminarTarea }) => {
 
     return (
-        <div style={{ maxWidth: "800px", margin: "0 auto" }}> 
-            <table className="table table-striped" style={{ maxWidth: "800px" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto" }}> 
+            <table className="table table-striped" style={{ width: "1200px" }}>
                 <thead>
                     <tr>
                         <th style={{ maxWidth: "400px" }} className="text-truncate">
@@ -22,8 +20,17 @@ const TableList = ( {listaTarea}) => {
                     </tr>
                 </thead>
                 <tbody>
-                    <Row/>
-                    <Row/>
+                    {listaTarea && listaTarea.length > 0 ? (
+                    listaTarea.map((tarea) => (
+                        <Row key={tarea.id} values={tarea} cambiarEstado={cambiarEstado} eliminarTarea={eliminarTarea} />
+                    ))
+                    ) : (
+                    <tr>
+                        <td colSpan="2" className="text-center">
+                            No hay tareas
+                        </td>
+                    </tr>
+                    )}
                 </tbody>
             </table>
         </div>
