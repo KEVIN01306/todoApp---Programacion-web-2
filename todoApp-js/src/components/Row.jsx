@@ -1,5 +1,3 @@
-// En src/Row.jsx
-
 const Row = ({ values, cambiarEstado, eliminarTarea }) => {
     const handleEstadoChange = (e) => {
         cambiarEstado(values.id, e.target.value);
